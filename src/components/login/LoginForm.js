@@ -7,8 +7,12 @@ import { useDispatch } from 'react-redux';
 
 import TextField from '../../shared/TextField';
 import '../../assets/css/login-form.css';
+import { userLogin } from '../../store/StoreIndex';
 
 const LoginForm = () => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const validValues = {
         email: '',
@@ -21,7 +25,11 @@ const LoginForm = () => {
     });
 
     const loginHandler = (values) => {
-        console.log({ values });
+        const data = {
+            email: values.email,
+            password: values.password
+        };
+        dispatch(userLogin(data, navigate));
     }
 
     return (

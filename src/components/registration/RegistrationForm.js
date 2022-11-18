@@ -7,8 +7,12 @@ import { useDispatch } from 'react-redux';
 
 import TextField from '../../shared/TextField';
 import '../../assets/css/login-form.css';
+import { userRegistration } from '../../store/StoreIndex';
 
 const RegistrationForm = () => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const validValues = {
         fullName: '',
@@ -23,7 +27,13 @@ const RegistrationForm = () => {
     });
 
     const registrationHandler = (values) => {
-        console.log({ values });
+        const data = {
+            name: values.fullName,
+            email: values.email,
+            password: values.password
+        };
+
+        dispatch(userRegistration(data, navigate));
     }
 
     return (

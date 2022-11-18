@@ -8,7 +8,7 @@ const Stats = () => {
     return (
         <Container className='my-5'>
             <Row>
-                <Col xs='12' lg='6'>
+                <Col xs='12' lg='6' data-aos="fade-right">
                     <h2 className='section-title'>Its All In The Stats</h2>
                     <p className='text-justify'>Welcome to the Draft Haven. Signup and help yourself to the latest MLB statistics. We hope that utilizing our quality search facilities will make your analysis easy and your player selection even easier. Also when you have identified your favorities, let us generate your teams.</p>
                     <p>After all it's all in the stats</p>
@@ -53,14 +53,14 @@ const Stats = () => {
                         <p className='m-0 p-0'>Injuries</p>
                     </div>
                 </Col>
-                <Col xs='12' lg='6' className='stats-side'>
+                <Col xs='12' lg='6' className='stats-side' data-aos="fade-left">
                     <Row>
-                        <Col><h2>Yearly Stats</h2></Col>
-                        <Col><h2>Yearly Stats</h2></Col>
+                        <Col><h2 className='stat'>Yearly Stats</h2></Col>
+                        <Col><h2 className='stat'>Batted Ball</h2></Col>
                     </Row>
                     <Row>
-                        <Col><h2>Yearly Stats</h2></Col>
-                        <Col><h2>Yearly Stats</h2></Col>
+                        <Col><h2 className='stat'>Splits</h2></Col>
+                        <Col><h2 className='stat'>Barrels / Hard Hit</h2></Col>
                     </Row>
                 </Col>
             </Row>

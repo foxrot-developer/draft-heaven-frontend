@@ -1,0 +1,44 @@
+.board-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.top-name {
+  margin-right: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.top-name:nth-child(1) {
+  color: rgb(30, 116, 116);
+}
+
+.stat-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.stat-option {
+  margin-right: 20px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.stat-option:nth-child(1) {
+  background-color: #0b5ed7;
+  color: #fff;
+}
+
+.board-main-area {
+  background-color: #f5f5f5;
+  margin-top: 20px;
+}
+
+.highlights {
+  background-color: #fff;
+  border-radius: 10px;
+  margin-right: 10px;
+  min-height: 300px;
+}
