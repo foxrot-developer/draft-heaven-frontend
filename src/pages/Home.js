@@ -1,8 +1,14 @@
 import React from 'react';
 
+import CustomNavbar from '../shared/CustomNavbar';
+import Stats from '../components/home/Stats';
+
 const Home = () => {
     return (
-        <h1>Home</h1>
+        <React.Fragment>
+            <CustomNavbar />
+            <Stats />
+        </React.Fragment>
     )
 }
 

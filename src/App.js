@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import './App.css';
 import './assets/css/login.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import NavigationRoutes from './routes/NavigationRoutes';
+import Loading from './shared/Loading';
 
 import "aos/dist/aos.css";
 
@@ -26,9 +27,11 @@ function App() {
   AOS.init();
 
   return (
-    <Router>
-      <NavigationRoutes />
-    </Router>
+    <Suspense fallback={<Loading />}>
+      <Router>
+        <NavigationRoutes />
+      </Router>
+    </Suspense>
   );
 }
 

@@ -1,0 +1,23 @@
+.section-title {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.single-stats {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.check-icon {
+  font-size: 15px;
+  margin-right: 20px;
+  color: var(--primary);
+}
+
+.stats-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}

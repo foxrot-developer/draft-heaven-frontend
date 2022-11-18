@@ -3,9 +3,9 @@ import { Col, Container, Image, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 import Logo from '../assets/images/logo.png';
-import LoginForm from '../components/login/LoginForm';
+import RegistrationForm from '../components/registration/RegistrationForm';
 
-const Login = () => {
+const Registration = () => {
 
     const navigate = useNavigate();
 
@@ -21,9 +21,9 @@ const Login = () => {
                     </Col>
                     <Col xs='12' lg='5'>
                         <div className='form-area'>
-                            <h4 className='text-center fs-5 fw-bold mb-4'>LOGIN</h4>
-                            <LoginForm />
-                            <p className='account-text'>Don't have an acount? <span className='switch-form' onClick={() => navigate('/register')}>Register</span></p>
+                            <h4 className='text-center fs-5 fw-bold mb-4'>REGISTRATION</h4>
+                            <RegistrationForm />
+                            <p className='account-text'>Already have an acount? <span className='switch-form' onClick={() => navigate('/login')}>Login</span></p>
                         </div>
                     </Col>
                 </Row>
@@ -32,4 +32,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Registration;

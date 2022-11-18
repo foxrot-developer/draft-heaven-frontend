@@ -49,3 +49,13 @@
 .switch-form:hover {
   color: var(--secondary);
 }
+
+.back-main {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.back-main:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
