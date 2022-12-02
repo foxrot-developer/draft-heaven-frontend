@@ -27,3 +27,16 @@ export const userRegistration = (data, navigate) => dispatch => {
             Toast.error(error.response.data.message);
         });
 };
+
+export const getAllPlayers = () => dispatch => {
+    Axios.get('user/all-players')
+        .then(response => {
+            dispatch({
+                type: actionTypes.ALL_PLAYERS,
+                payload: response.data.players
+            });
+        })
+        .catch(error => {
+            Toast.error(error.response.data.message);
+        });
+};

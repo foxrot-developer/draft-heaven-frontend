@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import Multiselect from 'multiselect-react-dropdown';
 
 import '../../assets/css/board.css';
+import { getAllPlayers } from '../../store/StoreIndex';
 
 const Board = () => {
+
+    const dispatch = useDispatch();
+
+    const allPlayers = useSelector(state => state.user.allPlayers);
+
+    const [choosedPlayers, setChoosedPlayers] = useState([]);
+    const [selectedPlayers, setSelectedPlayers] = useState([]);
+
+    const playerOptions = allPlayers?.map(player => {
+        return { value: player.PlayerID, label: `${player.FirstName} ${player.LastName}` };
+    });
+
+    const resetHandler = () => {
+        setChoosedPlayers([]);
+        setSelectedPlayers([]);
+    };
+
+    useEffect(() => {
+        dispatch(getAllPlayers());
+    }, []);
+
     return (
         <Container>
             <Row>
@@ -22,24 +46,35 @@ const Board = () => {
             <Row>
                 <Col className='d-flex'>
                     <label>Select Players</label>
-                    <Form.Select aria-label="Default select example">
-                        <option>Players</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </Form.Select>
+                    <Multiselect
+                        options={playerOptions}
+                        displayValue="label"
+                        showCheckbox
+                        showArrow
+                        isObject={true}
+                        onSelect={(selectedList, selectedItem) => setChoosedPlayers(selectedList)}
+                        onRemove={(selectedList, removedItem) => setChoosedPlayers(selectedList)}
+                        avoidHighlightFirstOption
+                        selectedValues={choosedPlayers}
+                    />
                 </Col>
                 <Col className='d-flex'>
                     <label>Your Players</label>
-                    <Form.Select aria-label="Default select example">
-                        <option>Players</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </Form.Select>
+                    <Multiselect
+                        options={choosedPlayers}
+                        displayValue="label"
+                        showCheckbox
+                        showArrow
+                        isObject={true}
+                        onSelect={(selectedList, selectedItem) => setSelectedPlayers(selectedList)}
+                        onRemove={(selectedList, removedItem) => setSelectedPlayers(selectedList)}
+                        avoidHighlightFirstOption
+                        selectedValues={selectedPlayers}
+                        selectionLimit={1}
+                    />
                 </Col>
                 <Col className='d-flex'>
-                    <Button variant='primary'>Reset</Button>
+                    <Button variant='primary' onClick={resetHandler}>Reset</Button>
                 </Col>
             </Row>
             <div className='board-main-area'>

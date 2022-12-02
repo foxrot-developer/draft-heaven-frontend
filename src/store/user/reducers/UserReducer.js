@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     isLogin: false,
-    user: {}
+    user: {},
+    allPlayers: []
 };
 
 const UserReducer = (state = initialState, action) => {
@@ -12,6 +13,11 @@ const UserReducer = (state = initialState, action) => {
                 ...state,
                 isLogin: true,
                 user: action.payload
+            };
+        case actionTypes.ALL_PLAYERS:
+            return {
+                ...state,
+                allPlayers: action.payload
             };
         default:
             return state;
