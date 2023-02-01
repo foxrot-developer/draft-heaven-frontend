@@ -28,6 +28,13 @@ export const userRegistration = (data, navigate) => dispatch => {
         });
 };
 
+export const userLogout = (navigate) => dispatch => {
+    dispatch({
+        type: actionTypes.USER_LOGOUT
+    });
+    navigate('/');
+};
+
 export const getAllPlayers = () => dispatch => {
     Axios.get('user/all-players')
         .then(response => {

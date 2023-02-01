@@ -16,7 +16,7 @@ const Board = () => {
     const [selectedPlayers, setSelectedPlayers] = useState([]);
 
     const playerOptions = allPlayers?.map(player => {
-        return { value: player.PlayerID, label: `${player.FirstName} ${player.LastName}` };
+        return { value: player.PlayerID, label: `${player.FirstName} ${player.LastName} - ${player.Position1}` };
     });
 
     const resetHandler = () => {
@@ -56,7 +56,9 @@ const Board = () => {
                         onRemove={(selectedList, removedItem) => setChoosedPlayers(selectedList)}
                         avoidHighlightFirstOption
                         selectedValues={choosedPlayers}
+                        hideSelectedList
                     />
+                    <p className='ms-2 fw-bold'>{choosedPlayers.length}</p>
                 </Col>
                 <Col className='d-flex'>
                     <label>Your Players</label>

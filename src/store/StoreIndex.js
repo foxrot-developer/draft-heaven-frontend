@@ -1,5 +1,6 @@
 export {
     userLogin,
     userRegistration,
-    getAllPlayers
+    getAllPlayers,
+    userLogout
 } from './user/actions/actionCreators';
