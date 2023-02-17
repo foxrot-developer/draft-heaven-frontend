@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     isLogin: false,
     user: {},
-    allPlayers: []
+    allPlayers: [],
+    battingStats: []
 };
 
 const UserReducer = (state = initialState, action) => {
@@ -18,12 +19,23 @@ const UserReducer = (state = initialState, action) => {
             return {
                 isLogin: false,
                 user: {},
-                allPlayers: []
+                allPlayers: [],
+                battingStats: []
             };
         case actionTypes.ALL_PLAYERS:
             return {
                 ...state,
                 allPlayers: action.payload
+            };
+        case actionTypes.BATTING_STATS:
+            return {
+                ...state,
+                battingStats: action.payload
+            };
+        case actionTypes.CLEAR_STATS:
+            return {
+                ...state,
+                battingStats: []
             };
         default:
             return state;

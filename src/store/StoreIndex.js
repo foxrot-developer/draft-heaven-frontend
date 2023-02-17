@@ -2,5 +2,7 @@ export {
     userLogin,
     userRegistration,
     getAllPlayers,
-    userLogout
+    userLogout,
+    playerYearlyBattingStats,
+    clearStats
 } from './user/actions/actionCreators';
